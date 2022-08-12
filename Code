@@ -1,0 +1,63 @@
+print('Hello! Welcome to my game.')
+name = input('What is your name? ')
+want_to_play = input(f'Hello {name}  do you want to play(yes/no)? ').lower()
+health = 10
+
+if want_to_play == 'yes': 
+    print('The goal of this game is to find your friend or your village.')
+    print('You are starting with', health, 'health.')
+    print('Lets play!')
+    left_or_right = input('You are lost in a creepy forest. Do you want to go left or right(left/right)? ').lower()
+    if left_or_right == 'left':
+        across_around = input('Nice, you follow a path and reach a lake... Do you swim across or go around(across/around)? ').lower()
+        if across_around == 'across':
+            house_river = input('You managed to go across, but were bit by a fish and lost 5 health. You notice a house and a river. Which do you go to(house/river)? ').lower()
+            health -= 5  
+            if house_river == 'house':
+                print('You went into the house and found your friend.')
+                print('CONGRATULATIONS!')
+                print('You won!!')
+            elif house_river == 'river':
+                print('You had no shelter, so you lost 5 health.')
+                health -= 5
+                if health <= 0:
+                    print('You now have 0 health and you lost.')
+                    print('GAME OVER')
+            else:
+                print('Invalid input. Restart the game.')
+                
+        elif across_around == 'around':
+            print('You managed to go around, then you found your village.')
+            print('CONGRATULATIONS!')
+            print('YOU WON!')
+        else:
+            print('Invalid input. Restart the game.')
+    elif left_or_right == 'right':
+        house = input('You found a house. Do you knock on it or sleep outside(knock/outside)? ').lower()
+        if house == 'knock':
+            print('You got attacked by the evil witch inside the house and lost 5 health and but managed to escape.')
+            health -= 5
+            house_river2 = input('You managed to escape the witch then you noticed a house and a river. Which do you go to(house/river)? ').lower() 
+            if house_river2 == 'house':
+                print('You went into the house and found your friend.')
+                print('CONGRATULATIONS!')
+                print('You won!!')
+            else:
+                print('You had no shelter, so you lost 5 health.')
+                health -= 5
+                if health <= 0:
+                    print('You now have 0 health and you lost.')
+                    print('GAME OVER')
+                else:
+                    print('You have survived you win!')
+        elif house == 'outside':
+            print('You were attacked by 5 lions and lost all your health.')
+            print('GAME OVER')
+        else:
+            ('Invalid input. Restart the game.')
+                  
+    else:
+        print('Invalid input. Restart the game.')
+        
+else:
+    print('GAME OVER')  
